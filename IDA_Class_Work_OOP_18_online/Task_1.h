@@ -12,7 +12,7 @@ public:
 	~Auto_ptr() { delete _data; }
 };
 
-class SomeClass {};
+//class SomeClass {};
 
 class Object
 {
@@ -21,7 +21,7 @@ class Object
 
 	// такое поле позволяет хранить наследников (для использования полиморфизма)
 	// контролирует время жизни объекта
-	std::unique_ptr <SomeClass> p_obj;
+	//std::unique_ptr <SomeClass> p_obj;
 
 public:
 	Object() = default;

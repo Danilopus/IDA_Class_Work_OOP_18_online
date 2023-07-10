@@ -94,10 +94,10 @@ void Task_2()
 	std::unique_ptr<Object> uniq_ptr = std::make_unique<Object>(5, .5);
 	
 	vector.push_back(std::make_unique<Object>(2, .5));
-	//vector.push_back(std::make_unique<Derived>(2, .5));
+	vector.push_back(std::make_unique<Derived>(2, .5));
 
 	vector.emplace_back(std::make_unique<Object>(2, .5));
-	//vector.emplace_back(std::make_unique<Derived>(2, .5));
+	vector.emplace_back(std::make_unique<Derived>(2, .5));
 
 
 }
