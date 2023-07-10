@@ -4,16 +4,36 @@
 
 #include "Service functions.h"
 
-class Class_A
+class Auto_ptr
 {
-//private:
-	int _A1;
-	double _A2;
-	std::string _A3_str;
-	std::vector<Class_A*> _A4_vector_ptr;
-	Class_A* _Class_A_ptr = nullptr;
+	int* _data;
 public:
-	Class_A(int A1,	double A2,	std::string A3);
-	Class_A() {};
+	Auto_ptr(int* data): _data(data) {}
+	~Auto_ptr() { delete _data; }
 };
 
+class SomeClass {};
+
+class Object
+{
+	int _a;
+	float _b;
+
+	// такое поле позволяет хранить наследников (для использования полиморфизма)
+	// контролирует время жизни объекта
+	std::unique_ptr <SomeClass> p_obj;
+
+public:
+	Object() = default;
+	//Object() {std::cout <<;
+	Object(int a, float b): _a(a), _b(b) {}
+	~Object() = default;
+	//virtual ~Object() = default;
+};
+
+class Derived : public Object
+{
+	int* p;
+public:
+	Derived(int val1, float val2) : Object(3, .3){}
+};
